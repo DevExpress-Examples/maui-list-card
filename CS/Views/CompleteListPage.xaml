@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CollectionViewWithActionButtons.Views.CompleteListPage"
              xmlns:dxc="clr-namespace:DevExpress.Maui.CollectionView;assembly=DevExpress.Maui.CollectionView"
-             xmlns:dxco="clr-namespace:DevExpress.Maui.Controls;assembly=DevExpress.Maui.Controls"
+             xmlns:dx="clr-namespace:DevExpress.Maui.Core;assembly=DevExpress.Maui.Core"
              xmlns:viewModels="clr-namespace:CollectionViewWithActionButtons.ViewModels"
              Title="{Binding ParentCard.Title}">
     <ContentPage.BindingContext>
@@ -13,14 +13,14 @@
         <dxc:DXCollectionView ItemsSource="{Binding ParentCard.Items}">
             <dxc:DXCollectionView.ItemTemplate>
                 <DataTemplate>
-                    <dxco:SimpleButton Padding="0" CornerRadius="0" PressedBackgroundColor="{AppThemeBinding Light={StaticResource Secondary}, Dark={StaticResource Button_Dark_Pressed}}">
+                    <dx:DXButton Padding="0" CornerRadius="0" PressedBackgroundColor="{AppThemeBinding Light={StaticResource Secondary}, Dark={StaticResource Button_Dark_Pressed}}">
                         <Grid ColumnDefinitions="Auto,*,Auto" RowDefinitions="*,*">
-                            <Image Source="{Binding Icon}" WidthRequest="40" HeightRequest="40" Grid.RowSpan="2" Margin="14"/>
+                            <dx:DXImage Source="{Binding Icon}" WidthRequest="40" HeightRequest="40" Grid.RowSpan="2" Margin="14"/>
                             <Label Text="{Binding Name}" TextColor="{AppThemeBinding Light={StaticResource OnSurfaceForeground}, Dark={StaticResource OnSurfaceForeground_Dark}}" FontAttributes="Bold" VerticalOptions="End" Grid.Column="1"/>
                             <Label Text="{Binding Subtitle}" TextColor="{AppThemeBinding Light={StaticResource OnSurfaceForeground}, Dark={StaticResource OnSurfaceForeground_Dark}}" LineBreakMode="TailTruncation" VerticalOptions="Start" Grid.Column="1" Grid.Row="1"/>
                             <Label Text="{Binding CreatedDate, StringFormat='{}{0:d}'}" TextColor="{AppThemeBinding Light={StaticResource OnSurfaceForeground}, Dark={StaticResource OnSurfaceForeground_Dark}}" VerticalTextAlignment="Center" Grid.Column="2" Grid.RowSpan="2" Margin="14,0,14,0"/>
                         </Grid>
-                    </dxco:SimpleButton>
+                    </dx:DXButton>
                 </DataTemplate>
             </dxc:DXCollectionView.ItemTemplate>
         </dxc:DXCollectionView>

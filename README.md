@@ -276,8 +276,8 @@ Follow the steps below to implement commands that process all **CollectionView**
 * [Featured Scenario: Expandable Cards with Lists](https://docs.devexpress.com/MAUI/404301)
 * [Featured Scenarios](https://docs.devexpress.com/MAUI/404291)
 * [DevExpress Collection View for .NET MAUI](https://docs.devexpress.com/MAUI/403324/collection-view/index)
-* [SimpleButton.Command](https://docs.devexpress.com/MAUI/DevExpress.Maui.Controls.SimpleButton.Command)
-* [SimpleButton.CommandParameter](https://docs.devexpress.com/MAUI/DevExpress.Maui.Controls.SimpleButton.CommandParameter)
+* [DXButton.Command](https://docs.devexpress.com/MAUI/DevExpress.Maui.Core.DXButtonBase.Command)
+* [DXButton.CommandParameter](https://docs.devexpress.com/MAUI/DevExpress.Maui.Core.DXButtonBase.CommandParameter)
 
 ## More Examples
 
