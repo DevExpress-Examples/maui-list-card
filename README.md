@@ -51,16 +51,17 @@ Follow the steps below to handle header clicks and implement navigation to the s
 2. Specify the [SimpleButton.Command](https://docs.devexpress.com/MAUI/DevExpress.Maui.Controls.SimpleButton.Command) property to define the header click command:
 
     ```xaml
-    <VerticalStackLayout >
-        <dxco:SimpleButton Text="{Binding Title}" Command="{Binding NavigateToAllCommand}" ...>
-            <dxco:SimpleButton.Content>
-                <Grid>
+    <dx:DXStackLayout Orientation="Vertical">
+        <dx:DXButton Content="{Binding Title}" Command="{Binding NavigateToAllCommand}" ...>
+            <dx:DXButton.Content>
+                <Grid ColumnDefinitions="*,Auto" HorizontalOptions="Fill" Padding="0">
                     <Label Text="{Binding Title}" .../>
                     <Label Text="{Binding Path=Items.Count, StringFormat='All ({0})'}" .../>
                 </Grid>
-            </dxco:SimpleButton.Content>
-        </dxco:SimpleButton>
-    </VerticalStackLayout>
+            </dx:DXButton.Content>
+        </dx:DXButton>
+
+    </dx:DXStackLayout>
     ```
     
     ```csharp
@@ -219,18 +220,18 @@ public static class DataGenerator {
 
 Follow the steps below to implement commands that process all **CollectionView** items within the card:
 
-1. Specify the [SimpleButton.Command](https://docs.devexpress.com/MAUI/DevExpress.Maui.Controls.SimpleButton.Command) property to define the click commands for both footer buttons.
+1. Specify the [DXButton.Command](https://docs.devexpress.com/MAUI/DevExpress.Maui.Core.DXButton.Command) property to define the click commands for both footer buttons.
    
     ```xaml
-    <HorizontalStackLayout HorizontalOptions="End" x:Name="commonActionsPanel" Padding="20,5,20,0">
-        <HorizontalStackLayout.Triggers>
-            <DataTrigger TargetType="HorizontalStackLayout" Binding="{Binding AllowCommonActions}" Value="False">
+    <dx:DXStackLayout Orientation="Horizontal" HorizontalOptions="End" x:Name="commonActionsPanel" Padding="20,5,20,0">
+        <dx:DXStackLayout.Triggers>
+            <DataTrigger TargetType="dx:DXStackLayout" Binding="{Binding AllowCommonActions}" Value="False">
                 <Setter Property="IsVisible" Value="False"/>
             </DataTrigger>
-        </HorizontalStackLayout.Triggers>
-        <dxco:SimpleButton Text="{Binding PrimaryActionName}" Command="{Binding SecondaryActionCommand}" .../>
-        <dxco:SimpleButton Text="{Binding SecondaryActionName}" Command="{Binding PrimaryActionCommand}" .../>
-    </HorizontalStackLayout>
+        </dx:DXStackLayout.Triggers>
+        <dx:DXButton Content="{Binding PrimaryActionName}" Command="{Binding SecondaryActionCommand}" .../>
+        <dx:DXButton Content="{Binding SecondaryActionName}" Command="{Binding PrimaryActionCommand}" .../>
+    </dx:DXStackLayout>
     ```
 
 1. Define the **Card.PrimaryAction** and **Card.SecondaryAction** commands:

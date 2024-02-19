@@ -21,7 +21,7 @@
         <DataTemplate x:Key="cardTemplate">
             <Grid Padding="14">
                 <Border StrokeShape="RoundRectangle 20,20,20,20" StrokeThickness="0" Padding="0,0,0,20" BackgroundColor="{AppThemeBinding Light={StaticResource White}, Dark={StaticResource Card_Background_Dark}}">
-                    <VerticalStackLayout >
+                    <dx:DXStackLayout Orientation="Vertical">
                         <dx:DXButton Content="{Binding Title}" Padding="20,20,0,5" CornerRadius="20,20,0,0" Command="{Binding NavigateToAllCommand}" >
                             <dx:DXButton.Content>
                                 <Grid ColumnDefinitions="*,Auto" HorizontalOptions="Fill" Padding="0">
@@ -31,16 +31,16 @@
                             </dx:DXButton.Content>
                         </dx:DXButton>
                         <dxc:DXCollectionView ItemsSource="{Binding TopItems}" ReduceSizeToContent="True" ItemTemplate="{StaticResource innerItemTemplate}"/>
-                        <HorizontalStackLayout HorizontalOptions="End" x:Name="commonActionsPanel" Padding="20,5,20,0">
-                            <HorizontalStackLayout.Triggers>
-                                <DataTrigger TargetType="HorizontalStackLayout" Binding="{Binding AllowCommonActions}" Value="False">
+                        <dx:DXStackLayout Orientation="Horizontal" HorizontalOptions="End" x:Name="commonActionsPanel" Padding="20,5,20,0">
+                            <dx:DXStackLayout.Triggers>
+                                <DataTrigger TargetType="dx:DXStackLayout" Binding="{Binding AllowCommonActions}" Value="False">
                                     <Setter Property="IsVisible" Value="False"/>
                                 </DataTrigger>
-                            </HorizontalStackLayout.Triggers>
+                            </dx:DXStackLayout.Triggers>
                             <dx:DXButton Content="{Binding PrimaryActionName}" FontSize="14" Padding="24,12,24,12" Command="{Binding SecondaryActionCommand}" TextColor="{AppThemeBinding Light={StaticResource Primary}, Dark={StaticResource Secondary}}" CornerRadius="40" PressedTextColor="{AppThemeBinding Light={StaticResource Primary}, Dark={StaticResource OnSurfaceForeground_Dark}}"/>
                             <dx:DXButton Content="{Binding SecondaryActionName}" FontSize="14" BackgroundColor="{AppThemeBinding Light={StaticResource Button_Light}, Dark={StaticResource Button_Dark}}" Command="{Binding PrimaryActionCommand}" TextColor="{AppThemeBinding Light={StaticResource White}, Dark={StaticResource Button_Dark_Foreground}}" CornerRadius="40" Padding="24,12,24,12" PressedBackgroundColor="{AppThemeBinding Light={StaticResource Button_Light_Pressed_Primary}, Dark={StaticResource Button_Dark_Pressed_Primary}}"/>
-                        </HorizontalStackLayout>
-                    </VerticalStackLayout>
+                        </dx:DXStackLayout>
+                    </dx:DXStackLayout>
                     <Border.Shadow>
                         <OnPlatform x:TypeArguments="Shadow">
                             <On Platform="iOS">
