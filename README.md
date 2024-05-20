@@ -61,7 +61,6 @@ Follow the steps below to handle header clicks and implement navigation to the s
                 </Grid>
             </dx:DXButton.Content>
         </dx:DXButton>
-
     </dx:DXStackLayout>
     ```
     
@@ -131,7 +130,7 @@ Follow the steps below to open the **CollectionView** item detailed information 
             <Label Text="{Binding Name}" .../>
         </Grid>
     </dxco:DXButton>
-    <dxco:DXButton Text="&#x2715;" Command="{Binding Source= {RelativeSource Mode=FindAncestorBindingContext,
+    <dxco:DXButton Content="&#x2715;" Command="{Binding Source= {RelativeSource Mode=FindAncestorBindingContext,
                     AncestorType={x:Type viewModels:Card}}, Path=HideCommand}" CommandParameter="{Binding}" .../>
     ```
 
@@ -191,7 +190,7 @@ The footer area includes buttons that can initiate list-level actions (such as "
 
 Buttons within the footer are visible only when the **Card.AllowCommonActions** property is `true`. The **PrimaryActionName** and **SecondaryActionName** properties define button names. 
 
-The following code snippet specifies whether the **Security** card's footer buttons are visible and define their names:
+The following code snippet specifies whether the **Security** card's footer buttons are visible and defines their names:
 
 ```csharp
 public static class DataGenerator {
