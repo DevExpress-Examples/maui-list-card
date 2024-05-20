@@ -14,17 +14,18 @@ This example shows you how to implement a List Card - a UI element that allows y
 **A. Header**
 
   * [Label](https://learn.microsoft.com/en-us/dotnet/maui/user-interface/controls/label?view=net-maui-7.0): [Text](https://learn.microsoft.com/en-us/dotnet/api/microsoft.maui.controls.label.text?view=net-maui-7.0)
-  * [SimpleButton](https://docs.devexpress.com/MAUI/DevExpress.Maui.Controls.SimpleButton): [Command](https://docs.devexpress.com/MAUI/DevExpress.Maui.Controls.SimpleButton.Command)
+  * [DXButton](https://docs.devexpress.com/MAUI/DevExpress.Maui.Core.DXButton): [Command](https://docs.devexpress.com/MAUI/DevExpress.Maui.Core.DXButtonBase.Command)
 
 **B. List Items**
 
   * [Label](https://learn.microsoft.com/en-us/dotnet/maui/user-interface/controls/label?view=net-maui-7.0): [Text](https://learn.microsoft.com/en-us/dotnet/api/microsoft.maui.controls.label.text?view=net-maui-7.0)
-  * [SimpleButton](https://docs.devexpress.com/MAUI/DevExpress.Maui.Controls.SimpleButton): [Command](https://docs.devexpress.com/MAUI/DevExpress.Maui.Controls.SimpleButton.Command), [CommandParameter](https://docs.devexpress.com/MAUI/DevExpress.Maui.Controls.SimpleButton.CommandParameter)
+  * [DXButton](https://docs.devexpress.com/MAUI/DevExpress.Maui.Core.DXButton): [Command](https://docs.devexpress.com/MAUI/DevExpress.Maui.Core.DXButtonBase.Command), [CommandParameter](https://docs.devexpress.com/MAUI/DevExpress.Maui.Core.DXButtonBase.CommandParameter)
   * [CollectionView](https://docs.devexpress.com/MAUI/DevExpress.Maui.CollectionView.DXCollectionView): [CollectionView.ItemsSource](https://docs.devexpress.com/MAUI/DevExpress.Maui.CollectionView.DXCollectionView.ItemsSource), [CollectionView.ItemTemplate](https://docs.devexpress.com/MAUI/DevExpress.Maui.CollectionView.DXCollectionView.ItemTemplate)
 
 **C. Footer (optional)**
 
-  * [SimpleButton](https://docs.devexpress.com/MAUI/DevExpress.Maui.Controls.SimpleButton): [Command](https://docs.devexpress.com/MAUI/DevExpress.Maui.Controls.SimpleButton.Command)
+  * [DXButton](https://docs.devexpress.com/MAUI/DevExpress.Maui.Core.DXButton): [Command](https://docs.devexpress.com/MAUI/DevExpress.Maui.Core.DXButtonBase.Command)
+    
 ## A. Header
 
 ### Anatomy
@@ -48,7 +49,7 @@ Follow the steps below to handle header clicks and implement navigation to the s
     }
     ```
 
-2. Specify the [SimpleButton.Command](https://docs.devexpress.com/MAUI/DevExpress.Maui.Controls.SimpleButton.Command) property to define the header click command:
+2. Specify the [DXButton.Command](https://docs.devexpress.com/MAUI/DevExpress.Maui.Core.DXButtonBase.Command) property to define the header click command:
 
     ```xaml
     <dx:DXStackLayout Orientation="Vertical">
@@ -119,18 +120,18 @@ This area contains a list of items. You can click on an item to view its details
 
 Follow the steps below to open the **CollectionView** item detailed information on click:
 
-1. Specify the [SimpleButton.Command](https://docs.devexpress.com/MAUI/DevExpress.Maui.Controls.SimpleButton.Command) and [SimpleButton.CommandParameter](https://docs.devexpress.com/MAUI/DevExpress.Maui.Controls.SimpleButton.CommandParameter) propertes to define the item click command. The following code sample uses the [FindAncestorBindingContext](https://learn.microsoft.com/en-us/dotnet/api/microsoft.maui.controls.relativebindingsourcemode?view=net-maui-7.0) binding to get the command of the parent object's **ItemClick** and **Hide** commands:
+1. Specify the [DXButton.Command](https://docs.devexpress.com/MAUI/DevExpress.Maui.Core.DXButtonBase.Command) and [DXButton.CommandParameter](https://docs.devexpress.com/MAUI/DevExpress.Maui.Core.DXButtonBase.CommandParameter) properties to define the item click command. The following code sample uses the [FindAncestorBindingContext](https://learn.microsoft.com/en-us/dotnet/api/microsoft.maui.controls.relativebindingsourcemode?view=net-maui-7.0) binding to get the command of the parent object's **ItemClick** and **Hide** commands:
    
     ```xaml
-    <dxco:SimpleButton Command="{Binding Source={RelativeSource Mode=FindAncestorBindingContext,
+    <dxco:DXButton Command="{Binding Source={RelativeSource Mode=FindAncestorBindingContext,
                     AncestorType={x:Type viewModels:Card}}, Path=ItemClickCommand}"
                     CommandParameter="{Binding}">
         <Grid ...>
             <Image Source="{Binding Icon}" .../>
             <Label Text="{Binding Name}" .../>
         </Grid>
-    </dxco:SimpleButton>
-    <dxco:SimpleButton Text="&#x2715;" Command="{Binding Source= {RelativeSource Mode=FindAncestorBindingContext,
+    </dxco:DXButton>
+    <dxco:DXButton Text="&#x2715;" Command="{Binding Source= {RelativeSource Mode=FindAncestorBindingContext,
                     AncestorType={x:Type viewModels:Card}}, Path=HideCommand}" CommandParameter="{Binding}" .../>
     ```
 
